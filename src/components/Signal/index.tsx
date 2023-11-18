@@ -1,23 +1,24 @@
 import React from "react";
 
+import { SignalColorsType } from "@types";
 import * as S from "./styles";
 
-export const Signal = () => {
-  const [n, setN] = React.useState(0);
+export interface ISignalProps {
+  litColor: SignalColorsType;
+}
 
-  React.useEffect(() => {
-    const timeout = setTimeout(() => {
-      setN((n + 1) % 3);
-    }, 1000);
+const signalColors = ["red", "yellow", "green"] as [
+  SignalColorsType,
+  SignalColorsType,
+  SignalColorsType
+];
 
-    return () => clearTimeout(timeout);
-  }, [n]);
-
+export const Signal = ({ litColor }: ISignalProps) => {
   return (
     <S.StyledSignalContainer>
-      <S.StyledLight color="red" on={n === 0} />
-      <S.StyledLight color="yellow" on={n === 1} />
-      <S.StyledLight color="green" on={n === 2} />
+      {signalColors.map((color) => (
+        <S.StyledLight color={color} on={litColor === color} />
+      ))}
     </S.StyledSignalContainer>
   );
 };
