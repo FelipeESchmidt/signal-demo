@@ -14,15 +14,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
-    "rootDir": "src",
-    "baseUrl": ".",
-    "paths": {
-      "@components/*": ["./src/components/*"],
-      "@pages/*": ["./src/pages/*"],
-      "@types": ["./src/types/index.ts"]
-    },
-    "typeRoots": ["./src/types"]
+    "jsx": "react-jsx"
   },
   "include": ["src", "src/types"]
 }

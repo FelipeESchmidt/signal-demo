@@ -1,5 +1,5 @@
-import { SignalColorsType } from "@types";
 import { styled } from "styled-components";
+import { SignalColorsType } from "../../types";
 
 export const StyledSignalContainer = styled.div`
   width: 100px;

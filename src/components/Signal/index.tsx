@@ -1,6 +1,7 @@
 import React from "react";
 
-import { SignalColorsType } from "@types";
+import { SignalColorsType } from "../../types";
+
 import * as S from "./styles";
 
 export interface ISignalProps {
