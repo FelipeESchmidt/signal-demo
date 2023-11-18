@@ -1,10 +1,11 @@
 import React from "react";
-import { Signal } from "../components/Signal";
+
+import Intersection from "../components/Intersection";
 
 const App: React.FunctionComponent = () => {
   return (
     <>
-      <Signal />
+      <Intersection />
     </>
   );
 };

@@ -1,3 +1,4 @@
+import { SignalColorsType } from "@types";
 import { styled } from "styled-components";
 
 export const StyledSignalContainer = styled.div`
@@ -16,7 +17,10 @@ export const StyledSignalContainer = styled.div`
   gap: 16px;
 `;
 
-export const StyledLight = styled.div<{ color: string; on?: boolean }>`
+export const StyledLight = styled.div<{
+  color: SignalColorsType;
+  on?: boolean;
+}>`
   position: relative;
   width: 50px;
   height: 50px;
