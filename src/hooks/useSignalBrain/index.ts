@@ -11,6 +11,7 @@ export const useSignalBrain = () => {
     ...defaultSignals.map((signal) => ({
       ...signal,
       litColor: "red" as SignalColorsType,
+      nOfCars: 0,
     })),
   ]);
 

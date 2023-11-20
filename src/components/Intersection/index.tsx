@@ -15,6 +15,7 @@ export const Intersection = ({ signal }: IIntersectionProps) => {
     <S.IntersectionContainer>
       <Signal litColor={signal.litColor} />
       <Street />
+      <p>{signal.nOfCars}</p>
     </S.IntersectionContainer>
   );
 };
