@@ -1,6 +1,8 @@
-import { ISignalProps } from "../../hooks/useSignalBrain";
+import { ISignalProps, useSignalBrain } from "../../hooks/useSignalBrain";
 
-export interface ISignalInfoContext {
+type IUseSignalBrainProps = ReturnType<typeof useSignalBrain>;
+
+export interface ISignalInfoContext extends IUseSignalBrainProps {
   activeSignalIndex: number;
   signals: ISignalProps[];
 }

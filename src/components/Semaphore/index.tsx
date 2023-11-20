@@ -5,11 +5,15 @@ import Intersection from "../Intersection";
 import * as S from "./styles";
 
 export const Semaphore = () => {
-  const { signals } = useContext(SignalInfoContext);
+  const { signals, increaseNOfCars } = useContext(SignalInfoContext);
   return (
     <S.StyledSemaphoreContainer>
       {signals.map((signal) => (
-        <Intersection signal={signal} key={signal.id} />
+        <Intersection
+          signal={signal}
+          key={signal.id}
+          increaseNOfCars={() => increaseNOfCars(signal.id)}
+        />
       ))}
     </S.StyledSemaphoreContainer>
   );

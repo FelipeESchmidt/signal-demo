@@ -44,9 +44,15 @@ export const useSignalBrain = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeSignalIndex]);
 
-  console.log({ activeSignalIndex, signals });
+  const increaseNOfCars = (signalIndex: number) => {
+    const newSignals = [...signals];
+    const signal = newSignals.find((signal) => signal.id === signalIndex)!;
+    signal.nOfCars += 1;
+    setSignals(newSignals);
+  };
 
   return {
+    increaseNOfCars,
     activeSignalIndex,
     signals,
   };
