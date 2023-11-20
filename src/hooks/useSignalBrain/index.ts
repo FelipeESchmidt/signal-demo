@@ -32,6 +32,21 @@ export const useSignalBrain = () => {
     }, yellowLitPeriod);
   };
 
+  const increaseNOfCars = (signalIndex: number) => {
+    const newSignals = [...signals];
+    const signal = newSignals.find((signal) => signal.id === signalIndex)!;
+    signal.nOfCars += 1;
+    setSignals(newSignals);
+  };
+
+  const decreaseNOfCars = (signalIndex: number) => {
+    const newSignals = [...signals];
+    const signal = newSignals.find((signal) => signal.id === signalIndex)!;
+    signal.nOfCars -= 1;
+    signal.nOfCars = signal.nOfCars < 0 ? 0 : signal.nOfCars;
+    setSignals(newSignals);
+  };
+
   React.useEffect(() => {
     const activeSignal = signals[activeSignalIndex];
     const nextActiveSignalIndex = (activeSignalIndex + 1) % nOfSignals;
@@ -40,16 +55,16 @@ export const useSignalBrain = () => {
       setNextActiveSignal(nextActiveSignalIndex);
     }, activeSignal.greenLitPeriod);
 
-    return () => clearTimeout(timeout);
+    const carInterval = setInterval(() => {
+      decreaseNOfCars(activeSignalIndex);
+    }, 1000);
+
+    return () => {
+      clearTimeout(timeout);
+      clearInterval(carInterval);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeSignalIndex]);
-
-  const increaseNOfCars = (signalIndex: number) => {
-    const newSignals = [...signals];
-    const signal = newSignals.find((signal) => signal.id === signalIndex)!;
-    signal.nOfCars += 1;
-    setSignals(newSignals);
-  };
 
   return {
     increaseNOfCars,
