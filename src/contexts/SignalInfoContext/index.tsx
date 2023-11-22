@@ -9,11 +9,12 @@ export const SignalInfoContext = React.createContext<ISignalInfoContext>(
 );
 
 export const SignalInfoProvider = ({ children }: INodeWithChildren) => {
-  const { activeSignalIndex, signals, increaseNOfCars } = useSignalBrain();
+  const { activeSignalIndex, nOfCars, signals, increaseNOfCars } =
+    useSignalBrain();
 
   return (
     <SignalInfoContext.Provider
-      value={{ activeSignalIndex, signals, increaseNOfCars }}
+      value={{ activeSignalIndex, nOfCars, signals, increaseNOfCars }}
     >
       {children}
     </SignalInfoContext.Provider>

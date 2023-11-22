@@ -8,11 +8,13 @@ import { ISignalProps } from "../../hooks/useSignalBrain";
 
 export interface IIntersectionProps {
   signal: ISignalProps;
+  nOfCars: number;
   increaseNOfCars: () => void;
 }
 
 export const Intersection = ({
   signal,
+  nOfCars,
   increaseNOfCars,
 }: IIntersectionProps) => {
   return (
@@ -20,7 +22,7 @@ export const Intersection = ({
       <Signal litColor={signal.litColor} />
       <Street />
       <button onClick={increaseNOfCars}>Add</button>
-      <p>{signal.nOfCars}</p>
+      <p>{nOfCars}</p>
     </S.IntersectionContainer>
   );
 };
