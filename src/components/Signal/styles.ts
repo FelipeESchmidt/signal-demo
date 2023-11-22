@@ -19,14 +19,14 @@ export const StyledSignalContainer = styled.div`
 
 export const StyledLight = styled.div<{
   color: SignalColorsType;
-  on?: boolean;
+  on?: string;
 }>`
   position: relative;
   width: 50px;
   height: 50px;
   border-radius: 50%;
   background-color: ${(props) => props.color};
-  filter: opacity(${({ on }) => (on ? "1" : "0.4")});
+  filter: opacity(${({ on }) => (on === "true" ? "1" : "0.4")});
 
   box-shadow: 0 0 6px 3px ${(props) => props.color};
 
