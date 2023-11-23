@@ -1,10 +1,11 @@
 import * as React from "react";
 
+import { ISignalProps } from "../../hooks/useSignalBrain";
 import Street from "../Street";
 import { Signal } from "../Signal";
+import { CarsCount } from "../CarsCount";
 
 import * as S from "./styles";
-import { ISignalProps } from "../../hooks/useSignalBrain";
 
 export interface IIntersectionProps {
   signal: ISignalProps;
@@ -21,8 +22,7 @@ export const Intersection = ({
     <S.IntersectionContainer>
       <Signal litColor={signal.litColor} />
       <Street />
-      <button onClick={increaseNOfCars}>Add</button>
-      <p>{nOfCars}</p>
+      <CarsCount increaseNOfCars={increaseNOfCars} nOfCars={nOfCars} />
     </S.IntersectionContainer>
   );
 };
