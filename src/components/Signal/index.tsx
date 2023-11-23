@@ -16,7 +16,7 @@ const signalColors = ["red", "yellow", "green"] as [
 
 export const Signal = ({ litColor }: ISignalProps) => {
   return (
-    <S.StyledSignalContainer>
+    <S.StyledSignalContainer litColor={litColor}>
       {signalColors.map((color) => (
         <S.StyledLight key={color} color={color} on={`${litColor === color}`} />
       ))}
