@@ -103,7 +103,7 @@ export const useSignalBrain = () => {
       (signalIndex) => nOfCars[signalIndex].n > 0
     );
 
-    if (!nextSignalIndexWithCar) return;
+    if (nextSignalIndexWithCar === undefined) return;
 
     setNextActiveSignal(nextSignalIndexWithCar);
 
