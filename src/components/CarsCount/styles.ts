@@ -2,16 +2,20 @@ import styled from "styled-components";
 
 export const CarContainer = styled.div`
   display: flex;
+  flex-direction: column;
+  gap: 12px;
   align-items: center;
-  margin-top: 20px;
 `;
 
 export const CarLabel = styled.label`
-  margin-right: 10px;
+  display: flex;
+  align-items: flex-end;
+  font-weight: bold;
+  font-size: 18px;
   &:after {
     content: "\u{1F697}";
-    font-size: 18px;
-    color: #333;
+    font-size: 22px;
+    margin-left: 5px;
   }
 `;
 
