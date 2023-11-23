@@ -6,6 +6,7 @@ import { SignalColorsType } from "../../types";
 export const useSignalBrain = () => {
   const nOfSignals = defaultSignals.length;
 
+  const [isIntelligent, setIsIntelligent] = React.useState(true);
   const [greenTimeout, setGreenTimeout] = React.useState<NodeJS.Timeout>();
   const [yellowTimeout, setYellowTimeout] = React.useState<NodeJS.Timeout>();
 
@@ -88,6 +89,8 @@ export const useSignalBrain = () => {
   }, [activeSignalIndex]);
 
   React.useEffect(() => {
+    if (!isIntelligent) return;
+
     const isSomeYellow = signals.some(({ litColor }) => litColor === "yellow");
 
     if (hasCarOnActiveSignal || !nOfCarsWaiting || isSomeYellow) return;
@@ -112,6 +115,8 @@ export const useSignalBrain = () => {
     activeSignalIndex,
     signals,
     nOfCars,
+    isIntelligent,
+    setIsIntelligent,
   };
 };
 
