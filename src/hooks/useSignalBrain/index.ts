@@ -108,7 +108,7 @@ export const useSignalBrain = () => {
     setNextActiveSignal(nextSignalIndexWithCar);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [nOfCarsWaiting, hasCarOnActiveSignal, activeSignalIndex]);
+  }, [nOfCarsWaiting, hasCarOnActiveSignal, activeSignalIndex, isIntelligent]);
 
   return {
     increaseNOfCars,
