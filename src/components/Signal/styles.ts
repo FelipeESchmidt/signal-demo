@@ -1,13 +1,26 @@
-import { SignalColorsType } from "@types";
 import { styled } from "styled-components";
+import { SignalColorsType } from "../../types";
 
-export const StyledSignalContainer = styled.div`
+const getCorrectShadowColor = (color: SignalColorsType) => {
+  switch (color) {
+    case "green":
+      return "rgba(0, 230, 118, 0.8)";
+    case "yellow":
+      return "rgba(255, 234, 0, 0.8)";
+    case "red":
+      return "rgba(213, 0, 0, 0.8)";
+  }
+};
+
+export const StyledSignalContainer = styled.div<{ litColor: SignalColorsType }>`
+  position: relative;
   width: 100px;
   height: 250px;
   background-color: black;
   border-radius: 16px;
   border: 2px solid rgba(255, 255, 255, 0.8);
-  box-shadow: inset 0 0 8px 1px rgba(255, 255, 255, 0.5),
+  box-shadow: inset 0 0 8px 1px
+      ${({ litColor }) => getCorrectShadowColor(litColor)},
     1px 1px 2px 0 rgba(255, 255, 255, 0.5);
 
   display: flex;
@@ -19,14 +32,14 @@ export const StyledSignalContainer = styled.div`
 
 export const StyledLight = styled.div<{
   color: SignalColorsType;
-  on?: boolean;
+  on?: string;
 }>`
   position: relative;
   width: 50px;
   height: 50px;
   border-radius: 50%;
   background-color: ${(props) => props.color};
-  filter: opacity(${({ on }) => (on ? "1" : "0.4")});
+  filter: opacity(${({ on }) => (on === "true" ? "1" : "0.4")});
 
   box-shadow: 0 0 6px 3px ${(props) => props.color};
 

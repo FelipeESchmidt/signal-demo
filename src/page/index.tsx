@@ -1,12 +1,15 @@
 import React from "react";
 
-import Intersection from "../components/Intersection";
+import { SignalInfoProvider } from "../contexts/SignalInfoContext";
+import { Semaphore } from "../components/Semaphore";
+import { IntelligentSwitch } from "../components/IntelligentSwitch";
 
 const App: React.FunctionComponent = () => {
   return (
-    <>
-      <Intersection />
-    </>
+    <SignalInfoProvider>
+      <IntelligentSwitch />
+      <Semaphore />
+    </SignalInfoProvider>
   );
 };
 

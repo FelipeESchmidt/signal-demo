@@ -1,15 +1,29 @@
 import * as React from "react";
 
-import * as S from "./styles";
-import { Signal } from "../Signal";
+import { ISignalProps } from "../../hooks/useSignalBrain";
 import Street from "../Street";
+import { Signal } from "../Signal";
+import { CarsCount } from "../CarsCount";
 
-export const Intersection = () => {
+import * as S from "./styles";
+
+export interface IIntersectionProps {
+  signal: ISignalProps;
+  nOfCars: number;
+  increaseNOfCars: () => void;
+}
+
+export const Intersection = ({
+  signal,
+  nOfCars,
+  increaseNOfCars,
+}: IIntersectionProps) => {
   return (
-    <S.StreetContainer>
-      <Signal litColor="yellow" />
+    <S.IntersectionContainer>
+      <Signal litColor={signal.litColor} />
       <Street />
-    </S.StreetContainer>
+      <CarsCount increaseNOfCars={increaseNOfCars} nOfCars={nOfCars} />
+    </S.IntersectionContainer>
   );
 };
 

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StreetContainer = styled.div`
+export const IntersectionContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
